@@ -26,7 +26,7 @@ client.api_key = os.getenv("OPENAI_API_KEY")
 
 # 創建 fine-tune 文件
 client.files.create(
-  file=open("rocma_qa.json", "rb"),
+  file=open("1.json", "rb"),
   purpose='fine-tune'
 )
 
