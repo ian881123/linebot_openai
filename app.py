@@ -5,7 +5,6 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import TextMessage, MessageEvent, TextSendMessage
 import os
 import openai
-from openai import OpenAI
 import tempfile
 import datetime
 import time
@@ -23,10 +22,8 @@ line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # 設定 Line Bot Webhook 金鑰
 handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
-# 定義客戶端
-client = OpenAI() 
 # 初始化 OpenAI API 金鑰
-client.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # 定義應用程式首頁路由
 @app.route("/")
