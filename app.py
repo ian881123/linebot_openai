@@ -55,8 +55,8 @@ def callback():
     return 'OK'
 
 # 處理 Line Bot 的訊息事件
-#@handler.add(MessageEvent, message=TextMessage)
-#def handle_message(event):
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
     msg = event.message.text
 
     # 在這裡呼叫 GPT_response 函數處理用戶的訊息
