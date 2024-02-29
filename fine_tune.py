@@ -21,8 +21,6 @@ os.system('curl -o 1.json -L https://raw.githubusercontent.com/ian881123/linebot
 
 # 定義客戶端
 client = OpenAI() 
-# 設置 OpenAI API 金鑰
-client.api_key = os.getenv("OPENAI_API_KEY")
 
 # 創建 fine-tune 文件
 client.files.create(
