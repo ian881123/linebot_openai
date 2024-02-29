@@ -23,10 +23,8 @@ line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # 設定 Line Bot Webhook 金鑰
 handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
-# 定義客戶端
-client = OpenAI() 
 # 初始化 OpenAI API 金鑰
-client.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI() 
 
 # 定義應用程式首頁路由
 @app.route("/")
