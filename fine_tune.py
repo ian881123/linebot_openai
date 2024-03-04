@@ -23,7 +23,7 @@ os.system('curl -o testdata1.json -L https://raw.githubusercontent.com/ian881123
 client = OpenAI() 
 
 # 創建 fine-tune 文件
-client.files.create(
+#client.files.create(
   file=open("testdata1.json", "rb"),
   purpose='fine-tune'
 )
@@ -32,7 +32,7 @@ client.files.create(
 client.files.list()
 
 # 創建 fine-tuning 作業
-client.fine_tuning.jobs.create(training_file="file-kf1nPv58Kl9lW6302ppLN4EL", model="gpt-3.5-turbo-0125")
+client.fine_tuning.jobs.create(training_file="file-Cl99RRGc6e2HEhI4h31Ujw1L", model="ft:gpt-3.5-turbo-0125:personal::8yiGjU3J")
 
 # 列出 fine-tuning 作業
 client.fine_tuning.jobs.list(limit=10)
