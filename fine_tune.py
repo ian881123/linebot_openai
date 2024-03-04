@@ -22,11 +22,37 @@ os.system('curl -o 1.5.json -L https://raw.githubusercontent.com/ian881123/lineb
 # 定義客戶端
 client = OpenAI() 
 
-# 創建 fine-tune 文件
-client.files.create(
-  file=open("1.5.json", "rb"),
-  purpose='fine-tune'
+# 列出文件
+client.files.list()
+
+# 創建 fine-tuning 作業
+client.fine_tuning.jobs.create(
+  training_file="file-16sYDxjj1xCEBQVs1QVY7g40", 
+  model="ft:gpt-3.5-turbo-0125:personal::8ytqx3HS", 
+  hyperparameters={
+    "n_epochs":7
+  }
 )
+
+# 列出 fine-tuning 作業
+client.fine_tuning.jobs.list(limit=10)
+
+# 檢索 fine-tuning 作業事件
+client.fine_tuning.jobs.retrieve("ftjob-oyOxmTlMmQ3S3yo4rAztFR5g")
+
+# 列出 fine-tuning 作業事件
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-oyOxmTlMmQ3S3yo4rAztFR5g", limit=10)
+
+# 創建帶有 fine-tuned 模型的聊天完成
+completion = client.chat.completions.create(
+  model="ft:gpt-3.5-turbo-0125:personal::8ytqx3HS",
+  messages=[
+    {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
+    {"role": "user", "content": "自費生未修畢應修學分之處置為何?"}
+  ]
+)
+
+print(completion.choices[0].message.content)
 
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
@@ -40,6 +66,10 @@ def GPT_response(text):
 
     answer = response.choices[0].message.content
 
+    # 去除回复文本中的標點符號
+    answer = answer.translate(str.maketrans('', '', string.punctuation))
+
+    return answer
     # 去除回复文本中的標點符號
     answer = answer.translate(str.maketrans('', '', string.punctuation))
 
