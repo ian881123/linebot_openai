@@ -27,3 +27,20 @@ client.files.create(
   file=open("1.json", "rb"),
   purpose='fine-tune'
 )
+
+# 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
+def GPT_response(text):
+    response = client.chat.completions.create(
+        model="ft:gpt-3.5-turbo-0125:personal::8yiGjU3J",
+        messages=[
+            {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
+            {"role": "user", "content": text}
+        ]
+    )
+
+    answer = response.choices[0].message.content
+
+    # 去除回复文本中的標點符號
+    answer = answer.translate(str.maketrans('', '', string.punctuation))
+
+    return answer
