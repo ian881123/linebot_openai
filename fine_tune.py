@@ -23,7 +23,7 @@ os.system('curl -o testdata1.json -L https://raw.githubusercontent.com/ian881123
 client = OpenAI() 
 
 # 創建 fine-tune 文件
-#client.files.create(
+client.files.create(
   file=open("testdata1.json", "rb"),
   purpose='fine-tune'
 )
