@@ -41,7 +41,7 @@ client.fine_tuning.jobs.list(limit=10)
 client.fine_tuning.jobs.retrieve("ftjob-kVp89uTKEM8wera127BZHleo")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(id="ftjob-kVp89uTKEM8wera127BZHleo", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-kVp89uTKEM8wera127BZHleo", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
