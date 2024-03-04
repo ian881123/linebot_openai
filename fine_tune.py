@@ -17,47 +17,21 @@ import string
 os.system('pip install openai --upgrade')
 
 # 使用 curl 下載 rocma_qa.json 文件
-os.system('curl -o 2.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/2.json')
+os.system('curl -o 2.5.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/2.5.json')
 
 # 定義客戶端
 client = OpenAI() 
 
-# 列出文件
-client.files.list()
-
-# 創建 fine-tuning 作業
-client.fine_tuning.jobs.create(
-  training_file="file-aqfuoF3VQDTqbLakPRxWvkvo", 
-  model="ft:gpt-3.5-turbo-0125:personal::8ywKWCxP", 
-  hyperparameters={
-    "n_epochs":7
-  }
+# 創建 fine-tune 文件
+client.files.create(
+  file=open("2.5.json", "rb"),
+  purpose='fine-tune'
 )
-
-# 列出 fine-tuning 作業
-client.fine_tuning.jobs.list(limit=10)
-
-# 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-TqQEPeJM0fwW8YksNAzKI9Kn")
-
-# 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-TqQEPeJM0fwW8YksNAzKI9Kn", limit=10)
-
-# 創建帶有 fine-tuned 模型的聊天完成
-completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::8ywKWCxP",
-  messages=[
-    {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "哪些學生應予開除學籍?"}
-  ]
-)
-
-print(completion.choices[0].message.content)
 
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8ywKWCxP",
+        model="ft:gpt-3.5-turbo-0125:personal::8z4Wewgf",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
