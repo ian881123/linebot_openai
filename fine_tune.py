@@ -22,11 +22,37 @@ os.system('curl -o 3.json -L https://raw.githubusercontent.com/ian881123/linebot
 # 定義客戶端
 client = OpenAI() 
 
-# 創建 fine-tune 文件
-client.files.create(
-  file=open("3.json", "rb"),
-  purpose='fine-tune'
+# 列出文件
+client.files.list()
+
+# 創建 fine-tuning 作業
+client.fine_tuning.jobs.create(
+  training_file="file-LxHS7fkBALUSpDYTChEk6BQo", 
+  model="ft:gpt-3.5-turbo-0125:personal::8zAx6RhR", 
+  hyperparameters={
+    "n_epochs":7
+  }
 )
+
+# 列出 fine-tuning 作業
+client.fine_tuning.jobs.list(limit=10)
+
+# 檢索 fine-tuning 作業事件
+client.fine_tuning.jobs.retrieve("ftjob-M2JNVLf3aN53jC7hIQzD9TMe")
+
+# 列出 fine-tuning 作業事件
+client.fine_tuning.jobs.list_events(fine_tuning_job_id=" ftjob-M2JNVLf3aN53jC7hIQzD9TMe ", limit=10)
+
+# 創建帶有 fine-tuned 模型的聊天完成
+completion = client.chat.completions.create(
+  model=" ft:gpt-3.5-turbo-0125:personal::8zAx6RhR ",
+  messages=[
+    {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
+    {"role": "user", "content": "枕頭與棉被之間的間距規定為? "}
+  ]
+)
+
+print(completion.choices[0].message.content)
 
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
