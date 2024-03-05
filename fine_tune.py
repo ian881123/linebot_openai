@@ -28,7 +28,7 @@ client.files.list()
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
   training_file="file-G4mQjTG4imoyLDNKEBFrkm4I", 
-  model="ft:gpt-3.5-turbo-0125:personal::8zAx6RhR", 
+  model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz", 
   hyperparameters={
     "n_epochs":7
   }
@@ -38,17 +38,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-M2JNVLf3aN53jC7hIQzD9TMe")
+client.fine_tuning.jobs.retrieve("ftjob-HRN2TfMrGMekITzGJVXplwBe")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-M2JNVLf3aN53jC7hIQzD9TMe", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-HRN2TfMrGMekITzGJVXplwBe", limit=10)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::8zAx6RhR",
+  model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "枕頭與棉被之間的間距規定為?"}
+    {"role": "user", "content": "床單應如何放置?"}
   ]
 )
 
@@ -57,7 +57,7 @@ print(completion.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8zAx6RhR",
+        model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
