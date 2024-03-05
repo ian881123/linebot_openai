@@ -30,7 +30,7 @@ client.fine_tuning.jobs.create(
   training_file="file-G4mQjTG4imoyLDNKEBFrkm4I", 
   model="ft:gpt-3.5-turbo-0125:personal::8zAx6RhR", 
   hyperparameters={
-    "n_epochs":8
+    "n_epochs":7
   }
 )
 
