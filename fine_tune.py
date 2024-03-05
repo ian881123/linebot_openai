@@ -17,7 +17,7 @@ import string
 os.system('pip install openai --upgrade')
 
 # 使用 curl 下載 rocma_qa.json 文件
-os.system('curl -o 3.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/3.json')
+os.system('curl -o 3.5.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/3.5.json')
 
 # 定義客戶端
 client = OpenAI() 
@@ -27,8 +27,8 @@ client.files.list()
 
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
-  training_file="file-G4mQjTG4imoyLDNKEBFrkm4I", 
-  model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz", 
+  training_file="file-9HZAymdxrJoOY1A7pvO37aUe", 
+  model="ft:gpt-3.5-turbo-0125:personal::8zNPO6J3", 
   hyperparameters={
     "n_epochs":7
   }
@@ -38,17 +38,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-HRN2TfMrGMekITzGJVXplwBe")
+client.fine_tuning.jobs.retrieve("ftjob-4gQyHMeq0khGwy1cfvxdlQp6")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-HRN2TfMrGMekITzGJVXplwBe", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-4gQyHMeq0khGwy1cfvxdlQp6", limit=10)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz",
+  model="ft:gpt-3.5-turbo-0125:personal::8zNPO6J3",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "床單應如何放置?"}
+    {"role": "user", "content": "鞋櫃上方可以放些什麼用品?"}
   ]
 )
 
@@ -57,7 +57,7 @@ print(completion.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::8zGO6taz",
+        model="ft:gpt-3.5-turbo-0125:personal::8zNPO6J3",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
