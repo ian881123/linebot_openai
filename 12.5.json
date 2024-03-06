@@ -1,0 +1,12 @@
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"未按時完成互助組回報會受到什麼處罰?"},{"role":"assistant","content":"未按時完成互助組回報,會受到0.3-0.6分的扣分處罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"什麼情況下會扣除學員的德行成績分數?"},{"role":"assistant","content":"連長和以上級別的長官有權力因應學員的違規情況,酌情扣除其德行成績分數作為懲處。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"學員可否提出不服從上級獎懲決定的申訴?"},{"role":"assistant","content":"沒有相關規定。但學員如對上級糾正不服管教,會受到1.0-1.3分的扣分懲罰,所以不太鼓勵直接提出正式申訴。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"留讀和懲處學員的管制單位為何?"},{"role":"assistant","content":"留讀和懲處學員的管制都是由所屬的實習旅部和營部負責。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"擔任實習幹部但未盡職責會受到什麼處罰?"},{"role":"assistant","content":"擔任實習幹部未能善盡職守,會受到0.8-1.1分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"校外違犯軍紀但未當日回報的懲罰是什麼?"},{"role":"assistant","content":"校外違犯軍紀但未當日回報,會受到0.9-1.2分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"逾假未歸超過30分鐘的懲罰是什麼?"},{"role":"assistant","content":"逾假未歸超過30分鐘,會受到0.9-1.2分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在社群平台散播學校不實言論的懲罰是什麼?"},{"role":"assistant","content":"在社群平台上散播學校不實言論,會受到2.1-2.4分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"私設Line或Facebook群組會受到什麼懲罰?"},{"role":"assistant","content":"私設社群平台群組,會受到1.7-2.0分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"不當要求學弟妹提早收假的懲罰是什麼?"},{"role":"assistant","content":"不當要求學弟妹提早收假,會受到2.1-2.4分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"違反兩性營規會受到什麼懲罰?"},{"role":"assistant","content":"違反兩性營規,會受到2.1-2.4分的扣分懲罰。"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"旅部通報不熟習的懲罰是什麼?"},{"role":"assistant","content":"旅部通報不熟習,會受到0.6-0.9分的扣分懲罰。"}]}
