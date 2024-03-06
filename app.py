@@ -47,7 +47,6 @@ def callback():
         abort(400)
     return 'OK'
 
-
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -59,22 +58,6 @@ def handle_message(event):
     except:
         print(traceback.format_exc())
         line_bot_api.reply_message(event.reply_token, TextSendMessage('你所使用的OPENAI API key額度可能已經超過，請於後台Log內確認錯誤訊息'))
-        
-
-@handler.add(PostbackEvent)
-def handle_message(event):
-    print(event.postback.data)
-
-
-@handler.add(MemberJoinedEvent)
-def welcome(event):
-    uid = event.joined.members[0].user_id
-    gid = event.source.group_id
-    profile = line_bot_api.get_group_member_profile(gid, uid)
-    name = profile.display_name
-    message = TextSendMessage(text=f'{name}歡迎加入')
-    line_bot_api.reply_message(event.reply_token, message)
-        
         
 import os
 if __name__ == "__main__":
