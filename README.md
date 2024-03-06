@@ -1,1 +1,1 @@
-linebot_openai
+ROCMA LINEBOT_OPENAI
