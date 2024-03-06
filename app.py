@@ -5,13 +5,15 @@ from linebot import (
 )
 from linebot.exceptions import (
     InvalidSignatureError
-from linebot.models import *
+from linebot.models import TextMessage, MessageEvent, TextSendMessage
 #======python的函數庫==========
 import openai
 from openai import OpenAI
-import tempfile, os
+import tempfile
+import os
 import datetime
 import time
+import string
 import traceback
 
 
