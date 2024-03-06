@@ -1,21 +1,18 @@
 # 引入 Flask 框架和相關模組
-from flask import Flask, request, abort
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
+from flask import Flask, render_template, request, abort
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
 from linebot.models import TextMessage, MessageEvent, TextSendMessage
 #======python的函數庫==========
+import os
 import openai
+import requests
 from openai import OpenAI
 import tempfile
-import os
 import datetime
 import time
 import string
 import traceback
-
 
 # 建立 Flask 應用程式實例
 app = Flask(__name__)
