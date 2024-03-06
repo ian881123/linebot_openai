@@ -57,9 +57,7 @@ def handle_message(event):
         print(GPT_answer)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))
         
-# 如果是主程序，啟動 Flask 應用程式
+import os
 if __name__ == "__main__":
-# 獲取應用程式運行的端口號
-port = int(os.environ.get('PORT', 5000))
-# 在 0.0.0.0 地址上運行應用程式
-app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
