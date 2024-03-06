@@ -10,7 +10,7 @@ import tempfile
 import datetime
 import time
 import string
-#from fine_tune import GPT_response # 從 fine_tune 模組中引入 GPT_response 函數
+from fine_tune import GPT_response # 從 fine_tune 模組中引入 GPT_response 函數
 
 
 # 建立 Flask 應用程式實例
@@ -30,11 +30,6 @@ client = OpenAI()
 @app.route("/")
 def index():
     return render_template("./index.html")
-
-# 定義用於 Heroku 喚醒的路由
-@app.route("/heroku_wake_up")
-def heroku_wake_up():
-    return "Hey! Wake Up!!"
 
 # 定義 Line Bot 的 Webhook 路由，接收 POST 請求
 @app.route("/callback", methods=['POST'])
