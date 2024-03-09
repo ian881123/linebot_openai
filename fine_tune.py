@@ -16,22 +16,19 @@ import string
 # 安裝或升級 openai 庫
 os.system('pip install openai --upgrade')
 
+# 使用 curl 下載 rocma_qa.json 文件
+os.system('curl -o 7.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/7.json')
+
 
 # 定義客戶端
 client = OpenAI() 
 
 
-# 創建帶有 fine-tuned 模型的聊天完成
-completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::8zch08k3",
-  messages=[
-    {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "枕頭與棉被之間的間距規定為?"}
-  ]
+# 創建 fine-tune 文件
+client.files.create(
+  file=open("7.json", "rb"),
+  purpose='fine-tune'
 )
-
-print(completion2.choices[0].message.content)
-
 
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
