@@ -10,7 +10,7 @@ import tempfile
 import datetime
 import time
 import string
-#from fine_tune import GPT_response # 從 fine_tune 模組中引入 GPT_response 函數
+from fine_tune import GPT_response # 從 fine_tune 模組中引入 GPT_response 函數
 
 
 # 建立 Flask 應用程式實例
@@ -28,7 +28,6 @@ handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
 # 初始化 OpenAI API 金鑰
 client = OpenAI() 
-client.api_key = os.getenv('OPENAI_API_KEY')
 
 
 # 定義應用程式首頁路由
@@ -54,7 +53,7 @@ def callback():
 
 
 # 處理 Line Bot 的訊息事件
-#@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
     # 在這裡呼叫 GPT_response 函數處理用戶的訊息
