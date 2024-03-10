@@ -17,7 +17,7 @@ import string
 os.system('pip install openai --upgrade')
 
 # 使用 curl 下載 rocma_qa.json 文件
-os.system('curl -o 13.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/13.json')
+os.system('curl -o 13.5.json -L https://raw.githubusercontent.com/ian881123/linebot_openai/master/13.5.json')
 
 
 # 定義客戶端
@@ -26,7 +26,7 @@ client = OpenAI()
 
 # 創建 fine-tune 文件
 client.files.create(
-  file=open("13.json", "rb"),
+  file=open("13.5.json", "rb"),
   purpose='fine-tune'
 )
 
