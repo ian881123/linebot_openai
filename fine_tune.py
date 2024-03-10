@@ -53,7 +53,7 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::915jmhiU,
+  model="ft:gpt-3.5-turbo-0125:personal::915jmhiU",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
     {"role": "user", "content": "右邊中層應擺放什麼東西?"}
