@@ -24,8 +24,8 @@ client.files.list()
 
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
-  training_file="file-d1lBvpCmeF5qePrFFTwK0Eic", 
-  model="ft:gpt-3.5-turbo-0125:personal::919GYX6a", 
+  training_file="file-UATTyCFpVY7aXrhCqn03JSQI", 
+  model="ft:gpt-3.5-turbo-0125:personal::919Z92wC", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,17 +35,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-PXor63tr9IwtoCUNcHfRyjdo")
+client.fine_tuning.jobs.retrieve("ftjob-gXCDJptvjqYwgVWbHPicCsAx")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-PXor63tr9IwtoCUNcHfRyjdo", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-gXCDJptvjqYwgVWbHPicCsAx", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::915jmhiU",
+  model="ft:gpt-3.5-turbo-0125:personal::919GYX6a",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "右邊中層應擺放什麼東西?"}
+    {"role": "user", "content": "書包應該如何放置?"}
   ]
 )
 
@@ -53,10 +53,10 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::919GYX6a",
+  model="ft:gpt-3.5-turbo-0125:personal::919Z92wC",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "右邊中層應擺放什麼東西?"}
+    {"role": "user", "content": "書包應該如何放置?"}
   ]
 )
 
@@ -65,7 +65,7 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::919GYX6a",
+        model="ft:gpt-3.5-turbo-0125:personal::919Z92wC",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
