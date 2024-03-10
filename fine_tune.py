@@ -24,8 +24,8 @@ client.files.list()
 
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
-  training_file="file-bV84L7VA8UDByhiN1Sqi1TNn", 
-  model="ft:gpt-3.5-turbo-0125:personal::912fg4H6", 
+  training_file="file-pOcYgzkxFqKDSo01r3276hXd", 
+  model="ft:gpt-3.5-turbo-0125:personal::912wnyQT", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,17 +35,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-v9mLDVy45sEK8ppKwTvj6oaO")
+client.fine_tuning.jobs.retrieve("ftjob-Xo75milCNhdjPvnZP43uxRBl")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-v9mLDVy45sEK8ppKwTvj6oaO", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-Xo75milCNhdjPvnZP43uxRBl", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::8zch08k3",
+  model="ft:gpt-3.5-turbo-0125:personal::912fg4H6",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "未按時就位會怎麼處分?"}
+    {"role": "user", "content": "學生證、車證因個人因素毀損或遺失會怎麼處分?"}
   ]
 )
 
@@ -53,10 +53,10 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::912fg4H6",
+  model="ft:gpt-3.5-turbo-0125:personal::912wnyQT",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "未按時就位會怎麼處分?"}
+    {"role": "user", "content": "學生證、車證因個人因素毀損或遺失會怎麼處分?"}
   ]
 )
 
@@ -65,7 +65,7 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::912fg4H6",
+        model="ft:gpt-3.5-turbo-0125:personal::912wnyQT",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
