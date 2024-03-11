@@ -24,8 +24,8 @@ client.files.list()
 
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
-  training_file="file-n9lVMN5qymmnhVoGL6KFzCb0", 
-  model="ft:gpt-3.5-turbo-0125:personal::91WFQFLP", 
+  training_file="file-gNRCiSaVljSV722SHAUEl6IB", 
+  model="ft:gpt-3.5-turbo-0125:personal::91adv7f5", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,17 +35,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-ukglSKJoogiiZk50itjSWuRz")
+client.fine_tuning.jobs.retrieve("ftjob-CulXQWfxWMo4FgHdXeuF6FmL")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-ukglSKJoogiiZk50itjSWuRz", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-CulXQWfxWMo4FgHdXeuF6FmL", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::91UHetr6",
+  model="ft:gpt-3.5-turbo-0125:personal::91WFQFLP",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "女生著制服時無職務牌,配件擺放方式是什麼?"}
+    {"role": "user", "content": "迷彩大夾克的職務臂章要貼在年級臂槓的什麼位置?"}
   ]
 )
 
@@ -53,10 +53,10 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::91WFQFLP",
+  model="ft:gpt-3.5-turbo-0125:personal::91adv7f5",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "女生著制服時無職務牌,配件擺放方式是什麼?"}
+    {"role": "user", "content": "迷彩大夾克的職務臂章要貼在年級臂槓的什麼位置?"}
   ]
 )
 
@@ -65,13 +65,13 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::91WFQFLP",
+        model="ft:gpt-3.5-turbo-0125:personal::91adv7f5",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
         ],
         temperature=0.5,
-        max_tokens=500,
+        max_tokens=256,
     )
 
     answer = response.choices[0].message.content
