@@ -25,7 +25,7 @@ client.files.list()
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
   training_file="file-VmFT57MQ4vwRbtp2jDJ708mN", 
-  model="ft:gpt-3.5-turbo-0125:personal::91arOlXm", 
+  model="ft:gpt-3.5-turbo-0125:personal::91b66VuX", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,14 +35,14 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-1tbnO086k31KKhEgccE2FmTA")
+client.fine_tuning.jobs.retrieve("ftjob-zMrlEgAVA0dQQMpClaWlIsUQ")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-1tbnO086k31KKhEgccE2FmTA", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-zMrlEgAVA0dQQMpClaWlIsUQ", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::91adv7f5",
+  model="ft:gpt-3.5-turbo-0125:personal::91arOlXm",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
     {"role": "user", "content": "請問榮譽假的核發標準是什麼?"}
@@ -53,7 +53,7 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:personal::91arOlXm",
+  model="ft:gpt-3.5-turbo-0125:personal::91b66VuX",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
     {"role": "user", "content": "請問榮譽假的核發標準是什麼?"}
@@ -65,7 +65,7 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:personal::91arOlXm",
+        model="ft:gpt-3.5-turbo-0125:personal::91b66VuX",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
