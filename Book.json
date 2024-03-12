@@ -161,6 +161,3 @@
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，學生畢業證書核發機制為何?"},{"role":"assistant","content":"在陸官，畢業生名冊、學位證書核銷表等資料,於畢業後三個月內呈報部審查,以確保發給畢業證書正確性。"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，退學學生離校處理程序為何?"},{"role":"assistant","content":"在陸官，退學生離校須填具相關切結書,由法定代理人或學校協助辦理離校手續,並得記錄見證,以資遵循。"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，畢業生申請學位證明書方式為何?"},{"role":"assistant","content":"在陸官，畢業生可向教務處申請發給中(英)文成績單。遺失補發學位證明書方式。"}]}
-
-
-
