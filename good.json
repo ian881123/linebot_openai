@@ -229,7 +229,8 @@
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，延宕幕僚作業的扣分標準是?"},{"role":"assistant","content":"在陸官，延宕幕僚作業扣0.5-0.8分"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，無意疏忽責任的扣分多少?"},{"role":"assistant","content":"在陸官，無意疏忽責任扣0.4-0.7分"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，態度輕浮、散漫的扣分標準是?"},{"role":"assistant","content":"在陸官，態度輕浮、散漫扣0.4-0.7分"}]}
-{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，精神不濟的扣分多少?"},{"role":"assistant","content":"在陸官，精神不濟(上課打瞌睡)扣0.8-1.1分"}]}{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，上課閱讀禁閱書刊的扣分標準是?"},{"role":"assistant","content":"在陸官，閱讀禁閱書刊扣0.8-1.1分"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，精神不濟的扣分多少?"},{"role":"assistant","content":"在陸官，精神不濟(上課打瞌睡)扣0.8-1.1分"}]}
+{"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，上課閱讀禁閱書刊的扣分標準是?"},{"role":"assistant","content":"在陸官，閱讀禁閱書刊扣0.8-1.1分"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，破壞部隊嚴整性的扣分多少?"},{"role":"assistant","content":"在陸官，破壞部隊嚴整性扣0.6-0.9分"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，教務系統密碼遺失的扣分多少?"},{"role":"assistant","content":"在陸官，教務系統密碼遺失者扣0.6-0.9分"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，指揮不當的扣分標準是?"},{"role":"assistant","content":"在陸官，指揮不當發生混亂扣0.5-0.8分"}]}
