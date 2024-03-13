@@ -24,8 +24,8 @@ client.files.list()
 
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
-  training_file="file-o0GDzA00G4njfNSoc5OMfl7F", 
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92ItrjP2", 
+  training_file="file-UJRjOuY6xagRlFRBwjlx8S3x", 
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92Jj94HB", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,17 +35,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-2U4QdD0unej9THYqqJt4bs72")
+client.fine_tuning.jobs.retrieve("ftjob-AEtfOIICzb6K0dAeFaRGvhNN")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-2U4QdD0unej9THYqqJt4bs72", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-AEtfOIICzb6K0dAeFaRGvhNN", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92IPAV8Z",
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92ItrjP2",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "在陸軍軍官學校，連長對所屬學生的加扣分和行政處分權限為何?"}
+    {"role": "user", "content": "在陸軍軍官學校，言行失當,口出穢言會怎麼處分?"}
   ]
 )
 
@@ -53,10 +53,10 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92ItrjP2",
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92Jj94HB",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "在陸軍軍官學校，連長對所屬學生的加扣分和行政處分權限為何?"}
+    {"role": "user", "content": "在陸軍軍官學校，言行失當,口出穢言會怎麼處分?"}
   ]
 )
 
@@ -67,7 +67,7 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:rocmacis::92ItrjP2",
+        model="ft:gpt-3.5-turbo-0125:rocmacis::92Jj94HB",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
