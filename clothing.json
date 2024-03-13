@@ -282,4 +282,3 @@
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，枕頭套開口方向應朝向內或外?"},{"role":"assistant","content":"在陸官，枕頭套開口朝內拉撐。"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，頭盔袋放置時,口袋應朝左或右?"},{"role":"assistant","content":"在陸官，頭盔袋雙口袋朝右。"}]}
 {"messages":[{"role":"system","content":"你扮演一名陸軍軍官學校的客服"},{"role":"user","content":"在陸軍軍官學校，男生西裝頭側面頭髮最小厚度為多少公分?"},{"role":"assistant","content":"在陸官，男生西裝頭側面頭髮最小厚度為5公分(含)。"}]}
-
