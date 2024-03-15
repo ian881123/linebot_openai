@@ -25,7 +25,7 @@ client.files.list()
 # 創建 fine-tuning 作業
 client.fine_tuning.jobs.create(
   training_file="file-v3lKG8sJ9gyluJPe1GTGrvPn", 
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92psxN1M", 
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92rtXvuq", 
   hyperparameters={
     "n_epochs":7
   }
@@ -35,17 +35,17 @@ client.fine_tuning.jobs.create(
 client.fine_tuning.jobs.list(limit=10)
 
 # 檢索 fine-tuning 作業事件
-client.fine_tuning.jobs.retrieve("ftjob-SVlRZqOaFz24gfK9Q7O6eXr1")
+client.fine_tuning.jobs.retrieve("ftjob-apmRCUlDmy44LndGLOKLDCRR")
 
 # 列出 fine-tuning 作業事件
-client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-SVlRZqOaFz24gfK9Q7O6eXr1", limit=10)
+client.fine_tuning.jobs.list_events(fine_tuning_job_id="ftjob-apmRCUlDmy44LndGLOKLDCRR", limit=10)
 
 # 創建聊天完成
 completion = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92haLT6r",
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92psxN1M",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "在陸軍軍官學校，ALCPT線上測驗的測驗期限是多久?"}
+    {"role": "user", "content": "在陸軍軍官學校，低於幾分以及未測驗的學生需要進行什麼處置?"}
   ]
 )
 
@@ -53,10 +53,10 @@ print(completion.choices[0].message.content)
 
 # 創建帶有 fine-tuned 模型的聊天完成
 completion2 = client.chat.completions.create(
-  model="ft:gpt-3.5-turbo-0125:rocmacis::92psxN1M",
+  model="ft:gpt-3.5-turbo-0125:rocmacis::92rtXvuq",
   messages=[
     {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
-    {"role": "user", "content": "在陸軍軍官學校，ALCPT線上測驗的測驗期限是多久?"}
+    {"role": "user", "content": "在陸軍軍官學校，低於幾分以及未測驗的學生需要進行什麼處置?"}
   ]
 )
 
@@ -66,7 +66,7 @@ print(completion2.choices[0].message.content)
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:rocmacis::92psxN1M",
+        model="ft:gpt-3.5-turbo-0125:rocmacis::92rtXvuq",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
