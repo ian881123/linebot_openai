@@ -22,7 +22,7 @@ client = OpenAI()
 # 定義函數 GPT_response，接收文字並使用 fine-tuned 模型生成回應
 def GPT_response(text):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0125:rocmacis::934gABCg",
+        model="ft:gpt-3.5-turbo-0125:rocmacis::9Rr5iYXK",
         messages=[
             {"role": "system", "content": "你扮演一名陸軍軍官學校的客服"},
             {"role": "user", "content": text}
